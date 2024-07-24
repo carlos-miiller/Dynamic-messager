@@ -17,10 +17,32 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicReference;
+
 public class TransparentWindowWithFadeInFX extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws ExecutionException, InterruptedException {
+        final String URL = "http://localhost:8022/api-v1/get-current-message";
+
+
+        CompletableFuture<String> titleFuture = JsonFetcher.fetchData(URL)
+                .thenApply(data -> data.title);
+
+        CompletableFuture<String> messageFuture = JsonFetcher.fetchData(URL)
+                .thenApply(data -> data.message);
+
+
+        CompletableFuture.allOf(titleFuture, messageFuture)
+                .thenRun(() -> {
+                    // Access title and message after both futures complete
+                    String title = titleFuture.join();
+                    String message = messageFuture.join();
+                    // Use title and message here
+                });
+
         // Get the screen size
         Screen screen = Screen.getPrimary();
         double screenWidth = screen.getBounds().getWidth();
@@ -35,8 +57,8 @@ public class TransparentWindowWithFadeInFX extends Application {
                 0, 0, 1, 0, true, // from left to right
                 CycleMethod.NO_CYCLE,
                 new Stop(0, Color.rgb(34, 60, 200, 0)), // Start transparent
-                new Stop(0.1, Color.rgb(13, 22, 59, 1)), // Quickly become opaque
-                new Stop(0.9, Color.rgb(13, 22, 59, 1)), // Remain opaque
+                new Stop(0.05, Color.rgb(13, 22, 59, 1)), // Quickly become opaque
+                new Stop(0.95, Color.rgb(13, 22, 59, 1)), // Remain opaque
                 new Stop(1, Color.rgb(34, 60, 200, 0)) // End transparent
         );
 
@@ -59,19 +81,15 @@ public class TransparentWindowWithFadeInFX extends Application {
         rectangle2.setLayoutY(202); // Positioned 150 pixels from the top
 
         // Create a text
-        Text text = new Text("RECEBENDO MENSAGEM DA MATRIZ!");
-        text.setFont(Font.font("Serif", FontWeight.EXTRA_BOLD, 26));
+        Text text = new Text(titleFuture.get().toUpperCase());
+        text.setFont(Font.font("Serif", FontWeight.EXTRA_BOLD, 24));
         text.setFill(Color.WHITE);
 
-        String message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et " +
-                "dolore magna aliqua. Ut enim ad minim veni\n\nam, quis nostrud exercitation\n\nullamco laboris nisi ut aliquip " +
-                "ex ea commodo consequat.";
-
-        String[] messageChunks = message.split("\\\\\\s+");
+        String[] messageChunks = messageFuture.get().toUpperCase().split("\\\\\\s+");
         TextFlow textFlow = new TextFlow();
         for (String chunk : messageChunks) {
             Text textChunk = new Text(chunk + " ");
-            textChunk.setFont(Font.font("Serif", FontWeight.BOLD, 24));
+            textChunk.setFont(Font.font("Serif", FontWeight.BOLD, 14));
             textChunk.setFill(Color.WHITE);
 
             textFlow.getChildren().add(textChunk);

@@ -2,8 +2,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.cpaps.systemmanager</groupId>
-    <artifactId>untitled</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>DM</artifactId>
+    <version>0.1-ALPHA-UNSTABLE</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -15,6 +15,17 @@
             <artifactId>javafx-controls</artifactId>
             <version>13</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
