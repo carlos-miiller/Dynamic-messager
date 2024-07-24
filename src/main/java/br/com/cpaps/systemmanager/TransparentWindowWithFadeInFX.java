@@ -27,13 +27,11 @@ public class TransparentWindowWithFadeInFX extends Application {
     public void start(Stage primaryStage) throws ExecutionException, InterruptedException {
         final String URL = "http://localhost:8022/api-v1/get-current-message";
 
-
         CompletableFuture<String> titleFuture = JsonFetcher.fetchData(URL)
                 .thenApply(data -> data.title);
 
         CompletableFuture<String> messageFuture = JsonFetcher.fetchData(URL)
                 .thenApply(data -> data.message);
-
 
         CompletableFuture.allOf(titleFuture, messageFuture)
                 .thenRun(() -> {
@@ -42,7 +40,8 @@ public class TransparentWindowWithFadeInFX extends Application {
                     String message = messageFuture.join();
                     // Use title and message here
                 });
-
+        titleFuture.get();
+        messageFuture.get();
         // Get the screen size
         Screen screen = Screen.getPrimary();
         double screenWidth = screen.getBounds().getWidth();
@@ -81,15 +80,15 @@ public class TransparentWindowWithFadeInFX extends Application {
         rectangle2.setLayoutY(202); // Positioned 150 pixels from the top
 
         // Create a text
-        Text text = new Text(titleFuture.get().toUpperCase());
-        text.setFont(Font.font("Serif", FontWeight.EXTRA_BOLD, 24));
+        Text text = new Text(titleFuture.getNow("IMPERATIVE.MESSAGE.TITLE.FROM.CENTRAL.GET.ERROR").toUpperCase());
+        text.setFont(Font.font("Arial", FontWeight.EXTRA_BOLD, 24));
         text.setFill(Color.WHITE);
 
-        String[] messageChunks = messageFuture.get().toUpperCase().split("\\\\\\s+");
+        String[] messageChunks = messageFuture.getNow("").toUpperCase().split("\\\\\\s+");
         TextFlow textFlow = new TextFlow();
         for (String chunk : messageChunks) {
             Text textChunk = new Text(chunk + " ");
-            textChunk.setFont(Font.font("Serif", FontWeight.BOLD, 14));
+            textChunk.setFont(Font.font("Arial", FontWeight.MEDIUM, 14));
             textChunk.setFill(Color.WHITE);
 
             textFlow.getChildren().add(textChunk);
@@ -106,7 +105,7 @@ public class TransparentWindowWithFadeInFX extends Application {
         textFlow.setLayoutX(rectangle2.getLayoutX() + 130);
         textFlow.setLayoutY(230);
 
-
+        Thread.sleep(3000);
 
 
         // Add the rectangle and text to the root pane
@@ -125,10 +124,24 @@ public class TransparentWindowWithFadeInFX extends Application {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.4), root);
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
+
+
+
+        FadeTransition pulseIn = new FadeTransition(Duration.seconds(0.5), rectangle);
+        pulseIn.setFromValue(0.7);
+        pulseIn.setToValue(1);
+        FadeTransition pulseOut = new FadeTransition(Duration.seconds(0.5), rectangle);
+        pulseOut.setFromValue(1);
+        pulseOut.setToValue(0.7);
+
+        pulseOut.setOnFinished(event -> pulseIn.play());
+
+        pulseIn.setCycleCount(5);
         fadeIn.play();
+        pulseOut.play();
 
         // Pause for 5 seconds, then apply fade-in transition to second rectangle
-        PauseTransition pauseSec = new PauseTransition(Duration.seconds(5));
+        PauseTransition pauseSec = new PauseTransition(Duration.seconds(3));
         pauseSec.setOnFinished(event -> {
             FadeTransition fadeIn2 = new FadeTransition(Duration.seconds(0.4), rectangle2);
             fadeIn2.setFromValue(0);
