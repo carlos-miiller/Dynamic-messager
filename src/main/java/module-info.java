@@ -2,5 +2,8 @@ module br.com.cpaps.systemmanager {
     requires javafx.controls;
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
+    requires javafx.fxml;
+
+    opens br.com.cpaps.systemmanager to javafx.fxml;
     exports br.com.cpaps.systemmanager;
 }
