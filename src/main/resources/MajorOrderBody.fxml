@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: transparent; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.SecondViewController">
+   <children>
+      <Polyline fill="BLACK" layoutX="458.0" layoutY="382.0" points="-50.0, -40.0, -84.0, -40.0, -84.0, -16.0, -50.0, 1.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="7.0" />
+      <Pane layoutX="399.0" layoutY="378.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #FFFFFF; -fx-border-width: 7;">
+         <children>
+            <Text fx:id="messageLabel" fill="WHITE" layoutX="25.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPERATIVE.MESSAGE.ERROR" wrappingWidth="550.0">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="399.0" layoutY="335.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: #ffffff; -fx-border-width: 7 7 7 0;">
+         <children>
+            <Text fx:id="titleLabel" fill="WHITE" layoutX="50.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPERATIVE.DISPATCH.ERROR" textAlignment="CENTER" wrappingWidth="500.0">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="22.0" />
+               </font>
+            </Text>
+            <ImageView layoutX="-54.0" layoutY="-67.0" nodeOrientation="INHERIT" scaleX="0.2" scaleY="0.2">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
