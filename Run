@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Set the paths
+JRE_PATH=target/jre22/bin/java
+MODULE_PATH=target/lib
+JAR_PATH=target/DM-0.1-ALPHA-UNSTABLE.jar
+MAIN_CLASS=br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX
+
+# Specify the JavaFX modules required
+MODULES=javafx.controls,javafx.fxml
+
+# Run the application using the bundled JRE
+$JRE_PATH -p $MODULE_PATH --add-modules $MODULES -cp $JAR_PATH $MAIN_CLASS
