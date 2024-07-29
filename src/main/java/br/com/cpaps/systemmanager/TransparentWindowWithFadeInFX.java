@@ -38,6 +38,7 @@ public class TransparentWindowWithFadeInFX extends Application {
             primaryStage.setTitle("FXML Example");
             primaryStage.setScene(scene);
             primaryStage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
