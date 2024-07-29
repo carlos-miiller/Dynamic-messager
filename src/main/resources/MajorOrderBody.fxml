@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,31 +10,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: transparent; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.SecondViewController">
+<AnchorPane fx:id="rootPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.SecondViewController">
    <children>
-      <Polyline fill="BLACK" layoutX="458.0" layoutY="382.0" points="-50.0, -40.0, -84.0, -40.0, -84.0, -16.0, -50.0, 1.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="7.0" />
-      <Pane layoutX="399.0" layoutY="378.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #FFFFFF; -fx-border-width: 7;">
+      <Pane fx:id="messagePane" layoutX="366.0" layoutY="205.0" minHeight="80.0" prefWidth="617.0" style="-fx-background-color: #00000082;">
          <children>
-            <Text fx:id="messageLabel" fill="WHITE" layoutX="25.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPERATIVE.MESSAGE.ERROR" wrappingWidth="550.0">
+            <Text fx:id="messageLabel" fill="WHITE" layoutX="22.0" layoutY="56.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="HQ.MESSAGE.ERROR" wrappingWidth="573.0">
                <font>
                   <Font name="JetBrains Mono Bold" size="16.0" />
                </font>
             </Text>
          </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
       </Pane>
-      <Pane layoutX="399.0" layoutY="335.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: #ffffff; -fx-border-width: 7 7 7 0;">
+      <Pane layoutX="383.0" layoutY="186.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: #ffffff; -fx-border-width: 0 0 3 0;">
          <children>
-            <Text fx:id="titleLabel" fill="WHITE" layoutX="50.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPERATIVE.DISPATCH.ERROR" textAlignment="CENTER" wrappingWidth="500.0">
+            <Text fx:id="titleLabel" fill="WHITE" layoutX="50.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HQ.DISPATCH.ERROR" wrappingWidth="500.0">
                <font>
-                  <Font name="JetBrains Mono Bold" size="22.0" />
+                  <Font name="JetBrains Mono Bold" size="20.0" />
                </font>
             </Text>
-            <ImageView layoutX="-54.0" layoutY="-67.0" nodeOrientation="INHERIT" scaleX="0.2" scaleY="0.2">
+            <ImageView layoutX="-35.0" layoutY="-59.0" nodeOrientation="INHERIT" scaleX="0.26" scaleY="0.26">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+               <effect>
+                  <Shadow height="23.0" radius="11.0" width="23.0" />
+               </effect>
+            </ImageView>
+            <ImageView layoutX="-36.0" layoutY="-59.0" nodeOrientation="INHERIT" scaleX="0.25" scaleY="0.25" scaleZ="0.25">
                <image>
                   <Image url="@logo.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
+      <Pane layoutX="370.0" layoutY="195.0" prefHeight="21.0" prefWidth="24.0" rotate="45.0" style="-fx-border-width: 0 0 4 0; -fx-border-color: white;" />
+      <Pane layoutX="366.0" layoutY="186.0" prefHeight="19.0" prefWidth="24.0" style="-fx-border-color: white; -fx-border-width: 0 0 0 3;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Polyline fill="BLACK" layoutX="259.0" layoutY="197.0" points="131.0, -11.0, 107.0, -11.0, 110.0, 4.0, 127.0, 21.0" strokeType="INSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

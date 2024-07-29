@@ -9,27 +9,29 @@
 
 <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.MainViewController">
    <children>
-      <Pane fx:id="mainPane" layoutX="383.0" layoutY="359.0" maxHeight="50.0" maxWidth="600.0" minHeight="50.0" minWidth="600.0" prefHeight="50.0" prefWidth="600.0" style="-fx-border-width: 7; -fx-border-color: #FFFFFF; -fx-background-color: #000000;">
+      <Pane fx:id="mainPane" layoutX="380.0" layoutY="353.0" prefHeight="61.0" prefWidth="608.0" style="-fx-background-color: transparent;">
          <children>
-            <Pane layoutY="16.0" prefHeight="19.0" prefWidth="600.0" style="-fx-background-color: #000000;">
+            <Pane layoutX="15.0" layoutY="16.0" prefHeight="29.0" prefWidth="580.0" style="-fx-background-color: #000000;">
                <children>
-                  <Label fx:id="orderHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="-5.0" maxHeight="550.0" minWidth="200.0" prefWidth="450.0" style="-fx-font-weight: 800;" text="DEFAULT.MAJOR.ORDER.FROM" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="orderHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="-1.0" maxHeight="550.0" minWidth="200.0" prefWidth="450.0" style="-fx-font-weight: 800;" text="DEFAULT.MAJOR.ORDER.FROM" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono Regular" size="22.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="35.0" fitWidth="25.0" layoutX="55.0" layoutY="-7.0">
+                  <ImageView fitHeight="35.0" fitWidth="25.0" layoutX="52.0" layoutY="-3.0">
                      <image>
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="25.0" layoutX="525.0" layoutY="-8.0">
+                  <ImageView fitHeight="35.0" fitWidth="25.0" layoutX="503.0" layoutY="-3.0">
                      <image>
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
+            <Pane layoutX="4.0" layoutY="3.0" prefHeight="19.0" prefWidth="600.0" style="-fx-border-width: 4 4 0 4; -fx-border-color: white; -fx-background-color: transparent;" />
+            <Pane layoutX="4.0" layoutY="38.0" prefHeight="19.0" prefWidth="600.0" style="-fx-border-width: 0 4 4 4; -fx-border-color: white; -fx-background-color: transparent;" />
          </children>
       </Pane>
    </children>

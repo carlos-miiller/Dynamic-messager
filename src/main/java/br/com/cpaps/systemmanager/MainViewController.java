@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -24,38 +25,33 @@ public class MainViewController {
 
     @FXML
     public void initialize() throws InterruptedException {
-        System.out.println("Initializing MainViewController"); // Debug statement
-
-
+        Thread.sleep(1000);
         orderHeader.setText("RECEBENDO MENSAGEM DA MATRIZ");
         mainPane.setOpacity(0);
-        Thread.sleep(1000);
-        applyAnimations(mainPane);
 
-        // Add click event handler
+        applyAnimations(mainPane);
         mainPane.setOnMouseClicked(event -> fadeOutAndSwitchToSecondView());
+
+        Font customFont = Font.loadFont(getClass().getResourceAsStream("/JetBrainsMono-Regular.ttf"), 22);
+        orderHeader.setFont(customFont);
     }
 
     private void applyAnimations(Pane pane) {
         if (pane == null) {
-            System.err.println("Pane is null"); // Debug statement
+            System.err.println("Pane is null");
             return;
         }
-        System.out.println("Applying animations"); // Debug statement
 
-        // Fade-in animation
-        FadeTransition fadeInTransition = new FadeTransition(Duration.seconds(1), pane);
+        FadeTransition fadeInTransition = new FadeTransition(Duration.seconds(1.5), pane);
         fadeInTransition.setFromValue(0.0);
         fadeInTransition.setToValue(1.0);
 
-        // Pulse animation (transparency)
         FadeTransition pulseTransition = new FadeTransition(Duration.seconds(0.5), pane);
         pulseTransition.setFromValue(1.0);
-        pulseTransition.setToValue(0.6);
+        pulseTransition.setToValue(0.5);
         pulseTransition.setCycleCount(Timeline.INDEFINITE);
         pulseTransition.setAutoReverse(true);
 
-        // Chain animations
         SequentialTransition sequentialTransition = new SequentialTransition(fadeInTransition, pulseTransition);
         sequentialTransition.play();
     }
@@ -64,10 +60,9 @@ public class MainViewController {
         FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(0.5), mainPane);
         fadeOutTransition.setFromValue(1.0);
         fadeOutTransition.setToValue(0.0);
-
-        fadeOutTransition.play();
         fadeOutTransition.setOnFinished(event -> switchToSecondView());
 
+        fadeOutTransition.play();
     }
 
     private void switchToSecondView() {
@@ -75,10 +70,9 @@ public class MainViewController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/MajorOrderBody.fxml"));
             AnchorPane secondView = loader.load();
 
-            // Get the current stage
             Stage stage = (Stage) mainPane.getScene().getWindow();
             Scene scene = new Scene(secondView);
-            scene.setFill(null); // Make the scene transparent
+            scene.setFill(null);
 
             stage.setScene(scene);
         } catch (IOException e) {

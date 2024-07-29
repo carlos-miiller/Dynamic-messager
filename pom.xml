@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/2001/02/metadata">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.w3.org/2001/02/metadata">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.cpaps.systemmanager</groupId>
     <artifactId>DM</artifactId>
@@ -39,7 +39,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>11</release>
+                    <release>22</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -73,6 +73,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
