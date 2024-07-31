@@ -1,5 +1,6 @@
-package br.com.cpaps.systemmanager;
+package br.com.cpaps.systemmanager.controllers;
 
+import br.com.cpaps.systemmanager.JsonFetcher;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;

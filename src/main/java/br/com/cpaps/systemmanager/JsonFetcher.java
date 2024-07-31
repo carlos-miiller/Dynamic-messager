@@ -37,5 +37,7 @@ public class JsonFetcher {
         public String message;
         public int version;
         public String type;
+        public String ramalName;
+        public int ramalNumber;
     }
 }

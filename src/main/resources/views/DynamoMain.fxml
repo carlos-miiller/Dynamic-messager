@@ -3,17 +3,16 @@
 <?import javafx.geometry.Pos?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.DynamoMainController">
+<StackPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.DynamoMainController">
    <children>
-      <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="222.0" style="-fx-background-color: transparent;"
-                  onMouseClicked="#handleAnchorPaneClick"
-                  onMouseEntered="#handleMouseEntered"
-                  onMouseExited="#handleMouseExited">
+      <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleAnchorPaneClick" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="65.0" prefWidth="222.0" style="-fx-background-color: transparent;">
          <children>
             <Pane layoutX="11.0" layoutY="12.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
             <Pane layoutX="19.0" layoutY="21.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black;">
@@ -23,6 +22,37 @@
                         <Font name="JetBrains Mono ExtraBold" size="22.0" />
                      </font>
                   </Label>
+                  <Pane fx:id="options" opacity="0.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black;">
+                     <children>
+                        <Pane fx:id="secondOption" layoutX="70.0" onMouseEntered="#showSecondOption" onMouseExited="#hideSecondOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0" style="-fx-opacity: 1;">
+                                 <image>
+                                    <Image url="@../icons/news_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="thirdOption" layoutX="125.0" onMouseClicked="#clickThirdOption" onMouseEntered="#showThirdOption" onMouseExited="#hideThirdOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0">
+                                 <image>
+                                    <Image url="@../icons/phone_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="firstOption" layoutX="13.0" onMouseClicked="#chama" onMouseEntered="#showFirstOption" onMouseExited="#hideFirstOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0">
+                                 <image>
+                                    <Image url="@../icons/mission_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
             <Pane layoutX="11.0" layoutY="46.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 3 3 3;" />

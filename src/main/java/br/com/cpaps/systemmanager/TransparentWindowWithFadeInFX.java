@@ -1,5 +1,6 @@
 package br.com.cpaps.systemmanager;
 
+import br.com.cpaps.systemmanager.controllers.MessageVerifier;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

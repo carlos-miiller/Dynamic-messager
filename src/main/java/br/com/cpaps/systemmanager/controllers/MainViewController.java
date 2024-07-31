@@ -1,4 +1,4 @@
-package br.com.cpaps.systemmanager;
+package br.com.cpaps.systemmanager.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;

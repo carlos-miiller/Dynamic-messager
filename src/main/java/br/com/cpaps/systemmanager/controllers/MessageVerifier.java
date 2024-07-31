@@ -1,4 +1,6 @@
-package br.com.cpaps.systemmanager;
+package br.com.cpaps.systemmanager.controllers;
+
+import br.com.cpaps.systemmanager.JsonFetcher;
 
 import java.io.*;
 import java.util.Properties;

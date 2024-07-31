@@ -7,4 +7,6 @@ module br.com.cpaps.systemmanager {
 
     opens br.com.cpaps.systemmanager to javafx.fxml;
     exports br.com.cpaps.systemmanager;
+    exports br.com.cpaps.systemmanager.controllers;
+    opens br.com.cpaps.systemmanager.controllers to javafx.fxml;
 }

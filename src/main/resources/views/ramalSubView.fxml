@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="333.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.ramalController">
+   <children>
+      <Pane layoutX="17.0" layoutY="68.0" prefHeight="32.0" prefWidth="300.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0 3 3 3;">
+         <children>
+            <Label layoutX="110.0" layoutY="-1.0" text="RAMAIS" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono ExtraBold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="ramalExitButton" layoutX="259.0" layoutY="2.0" onMouseClicked="#close" onMouseEntered="#displayExit" onMouseExited="#hideExit" opacity="0.5" text="[X]" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono ExtraBold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="17.0" layoutY="100.0" maxHeight="100.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+         <children>
+            <TextFlow prefWidth="300.0" style="-fx-background-color: #00000082;">
+               <children>
+                  <Label opacity="0.5" prefWidth="200.0" text="  NOME" textFill="WHITE" wrapText="true">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" opacity="0.5" prefWidth="60.0" text="NUM." textFill="WHITE" wrapText="true">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefWidth="200.0" text="MATRIZ TI" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="RIGHT" prefWidth="60.0" text="4272" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" />
+               </padding>
+            </TextFlow>
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="30.0" />
+   </padding>
+</AnchorPane>
