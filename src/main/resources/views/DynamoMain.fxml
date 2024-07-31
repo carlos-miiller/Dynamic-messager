@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.DynamoMainController">
+   <children>
+      <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="222.0" style="-fx-background-color: transparent;"
+                  onMouseClicked="#handleAnchorPaneClick"
+                  onMouseEntered="#handleMouseEntered"
+                  onMouseExited="#handleMouseExited">
+         <children>
+            <Pane layoutX="11.0" layoutY="12.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
+            <Pane layoutX="19.0" layoutY="21.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black;">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="2.0" text="DYNAMO" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="11.0" layoutY="46.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 3 3 3;" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+   </children>
+   <StackPane.alignment>
+      <javafx.geometry.Pos fx:constant="TOP_CENTER" />
+   </StackPane.alignment>
+</StackPane>

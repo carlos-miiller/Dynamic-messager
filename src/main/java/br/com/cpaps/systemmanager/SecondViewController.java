@@ -3,13 +3,20 @@ package br.com.cpaps.systemmanager;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 
+import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -33,14 +40,13 @@ public class SecondViewController {
         messagePane.setOpacity(0);
         applyFadeInTransition(rootPane);
 
-        Font customFontHead = Font.loadFont(getClass().getResourceAsStream("/JetBrainsMono-Regular.ttf"), 20);
-        Font customFontMessage = Font.loadFont(getClass().getResourceAsStream("/JetBrainsMono-Regular.ttf"), 16);
+        Font customFontHead = Font.loadFont(getClass().getResourceAsStream("/fonts/JetBrainsMono-Regular.ttf"), 20);
+        Font customFontMessage = Font.loadFont(getClass().getResourceAsStream("/fonts/JetBrainsMono-Regular.ttf"), 16);
 
         titleLabel.setFont(customFontHead);
         messageLabel.setFont(customFontMessage);
         try {
             CompletableFuture<JsonFetcher.Data> dataFuture = JsonFetcher.fetchData(URL);
-
             dataFuture.thenAccept(data -> {
                 Platform.runLater(() -> {
                     titleLabel.setText(data.title);
@@ -48,11 +54,9 @@ public class SecondViewController {
                 });
             }).get();
         } catch (Exception e) {
-            // Incluir tratamento de excessões
+            System.err.println(e.toString());
         }
-        rootPane.setOnMouseClicked(event -> {
-            Platform.exit();
-        });
+        rootPane.setOnMouseClicked(event -> openDynamoMain());
     }
 
     private void applyFadeInTransition(AnchorPane pane) {
@@ -78,5 +82,40 @@ public class SecondViewController {
         fadeTransition.setFromValue(0.0);
         fadeTransition.setToValue(1.0);
         fadeTransition.play();
+    }
+    private void openDynamoMain() {
+        try {
+            // Load the DynamoMain FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DynamoMain.fxml"));
+            Parent dynamoMainRoot = loader.load();
+
+            // Create a new stage for DynamoMain with TRANSPARENT style
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.TRANSPARENT);
+
+            // Set the new scene with DynamoMain
+            Scene scene = new Scene(dynamoMainRoot);
+            scene.setFill(null); // Ensure the scene's background is transparent
+            newStage.setScene(scene);
+
+            // Set the title for the new stage
+            newStage.setTitle("Dynamo");
+
+            // Adjust the position for the DynamoMain window
+            double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+            double windowWidth = 222.0; // Set the correct width for DynamoMain
+            newStage.setX((screenWidth - windowWidth) / 2);
+            newStage.setY(0);
+
+            // Show the new stage
+            newStage.show();
+
+            // Close the current stage
+            Stage currentStage = (Stage) rootPane.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

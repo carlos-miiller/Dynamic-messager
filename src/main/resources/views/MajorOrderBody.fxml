@@ -33,7 +33,7 @@
             </Text>
             <ImageView layoutX="-35.0" layoutY="-59.0" nodeOrientation="INHERIT" scaleX="0.26" scaleY="0.26">
                <image>
-                  <Image url="@logo.png" />
+                  <Image url="@../icons/logo.png" />
                </image>
                <effect>
                   <Shadow height="23.0" radius="11.0" width="23.0" />
@@ -41,7 +41,7 @@
             </ImageView>
             <ImageView layoutX="-36.0" layoutY="-59.0" nodeOrientation="INHERIT" scaleX="0.25" scaleY="0.25" scaleZ="0.25">
                <image>
-                  <Image url="@logo.png" />
+                  <Image url="@../icons/logo.png" />
                </image>
             </ImageView>
          </children>

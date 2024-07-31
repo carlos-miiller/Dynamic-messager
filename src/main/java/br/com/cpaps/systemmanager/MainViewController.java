@@ -32,7 +32,7 @@ public class MainViewController {
         applyAnimations(mainPane);
         mainPane.setOnMouseClicked(event -> fadeOutAndSwitchToSecondView());
 
-        Font customFont = Font.loadFont(getClass().getResourceAsStream("/JetBrainsMono-Regular.ttf"), 22);
+        Font customFont = Font.loadFont(getClass().getResourceAsStream("/fonts/JetBrainsMono-Regular.ttf"), 22);
         orderHeader.setFont(customFont);
     }
 
@@ -67,7 +67,7 @@ public class MainViewController {
 
     private void switchToSecondView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MajorOrderBody.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/MajorOrderBody.fxml"));
             AnchorPane secondView = loader.load();
 
             Stage stage = (Stage) mainPane.getScene().getWindow();

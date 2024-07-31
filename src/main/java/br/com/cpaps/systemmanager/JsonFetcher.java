@@ -35,5 +35,7 @@ public class JsonFetcher {
     public static class Data {
         public String title;
         public String message;
+        public int version;
+        public String type;
     }
 }
