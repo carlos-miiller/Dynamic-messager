@@ -11,7 +11,7 @@
    <children>
       <Pane fx:id="mainPane" layoutX="380.0" layoutY="353.0" prefHeight="61.0" prefWidth="608.0" style="-fx-background-color: transparent;">
          <children>
-            <Pane layoutX="15.0" layoutY="16.0" prefHeight="29.0" prefWidth="580.0" style="-fx-background-color: #000000;">
+            <Pane layoutX="15.0" layoutY="16.0" prefHeight="29.0" prefWidth="580.0" style="-fx-background-color: #02002E;">
                <children>
                   <Label fx:id="orderHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="-1.0" maxHeight="550.0" minWidth="200.0" prefWidth="450.0" style="-fx-font-weight: 800;" text="DEFAULT.MAJOR.ORDER.FROM" textAlignment="CENTER" textFill="WHITE">
                      <font>

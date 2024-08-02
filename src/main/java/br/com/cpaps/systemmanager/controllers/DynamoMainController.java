@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
 public class DynamoMainController {
@@ -80,32 +79,23 @@ public class DynamoMainController {
     public void clickThirdOption(MouseEvent event) throws IOException {
         Label ramalExitButton;
 
-
-        // Load the DynamoMain FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ramalSubView.fxml"));
         Parent dynamoMainRoot = loader.load();
 
-        // Create a new stage for DynamoMain with TRANSPARENT style
         Stage newStage = new Stage();
         newStage.initStyle(StageStyle.TRANSPARENT);
 
-        // Set the new scene with DynamoMain
         Scene scene = new Scene(dynamoMainRoot);
-        scene.setFill(null); // Ensure the scene's background is transparent
+        scene.setFill(null);
         newStage.setScene(scene);
-
-        // Set the title for the new stage
         newStage.setTitle("Dynamo");
 
-        // Adjust the position for the DynamoMain window
         double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-        double windowWidth = 335.0; // Set the correct width for DynamoMain
+        double windowWidth = 635.0;
         newStage.setX((screenWidth - windowWidth) / 2);
         newStage.setY(0);
 
-        // Show the new stage
         newStage.show();
-
     }
 
     @FXML
@@ -115,7 +105,6 @@ public class DynamoMainController {
 
     @FXML
     public void initialize() {
-        // Initialization logic if needed
         rootPane.setOpacity(0.6);
         options.setOpacity(0);
     }

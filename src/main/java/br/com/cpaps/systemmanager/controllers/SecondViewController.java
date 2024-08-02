@@ -1,6 +1,7 @@
 package br.com.cpaps.systemmanager.controllers;
 
-import br.com.cpaps.systemmanager.JsonFetcher;
+import br.com.cpaps.systemmanager.data.JsonFetcher;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -47,11 +48,11 @@ public class SecondViewController {
         titleLabel.setFont(customFontHead);
         messageLabel.setFont(customFontMessage);
         try {
-            CompletableFuture<JsonFetcher.Data> dataFuture = JsonFetcher.fetchData(URL);
+            CompletableFuture<JsonNode> dataFuture = JsonFetcher.fetchData(URL);
             dataFuture.thenAccept(data -> {
                 Platform.runLater(() -> {
-                    titleLabel.setText(data.title);
-                    messageLabel.setText(data.message);
+                    titleLabel.setText(data.path("title").asText());
+                    messageLabel.setText(data.path("message").asText());
                 });
             }).get();
         } catch (Exception e) {
@@ -86,32 +87,23 @@ public class SecondViewController {
     }
     private void openDynamoMain() {
         try {
-            // Load the DynamoMain FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DynamoMain.fxml"));
             Parent dynamoMainRoot = loader.load();
 
-            // Create a new stage for DynamoMain with TRANSPARENT style
             Stage newStage = new Stage();
             newStage.initStyle(StageStyle.TRANSPARENT);
 
-            // Set the new scene with DynamoMain
             Scene scene = new Scene(dynamoMainRoot);
-            scene.setFill(null); // Ensure the scene's background is transparent
+            scene.setFill(null);
             newStage.setScene(scene);
-
-            // Set the title for the new stage
             newStage.setTitle("Dynamo");
 
-            // Adjust the position for the DynamoMain window
             double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-            double windowWidth = 222.0; // Set the correct width for DynamoMain
+            double windowWidth = 222;
             newStage.setX((screenWidth - windowWidth) / 2);
             newStage.setY(0);
-
-            // Show the new stage
             newStage.show();
 
-            // Close the current stage
             Stage currentStage = (Stage) rootPane.getScene().getWindow();
             currentStage.close();
 

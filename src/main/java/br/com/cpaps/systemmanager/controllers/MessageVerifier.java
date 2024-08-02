@@ -1,6 +1,7 @@
 package br.com.cpaps.systemmanager.controllers;
 
-import br.com.cpaps.systemmanager.JsonFetcher;
+import br.com.cpaps.systemmanager.data.JsonFetcher;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.*;
 import java.util.Properties;
@@ -13,10 +14,10 @@ public class MessageVerifier {
 
     public static boolean haveNew() {
         try {
-            JsonFetcher.Data currentData = getCurrentDataFromServer();
+            JsonNode currentData = getCurrentDataFromServer();
             if (currentData != null) {
-                String type = currentData.type;
-                int currentVersion = currentData.version;
+                String type = currentData.path("type").asText();
+                int currentVersion = currentData.path("version").asInt();
 
                 // Fetch the last known version for this type
                 String lastVersionStr = getVersionForType(type);
@@ -40,9 +41,9 @@ public class MessageVerifier {
         }
     }
 
-    private static JsonFetcher.Data getCurrentDataFromServer() throws InterruptedException, ExecutionException {
+    private static JsonNode getCurrentDataFromServer() throws InterruptedException, ExecutionException {
         String url = "http://192.168.1.158:8022/api-v1/get-version";
-        CompletableFuture<JsonFetcher.Data> dataFuture = JsonFetcher.fetchData(url);
+        CompletableFuture<JsonNode> dataFuture = JsonFetcher.fetchData(url);
         return dataFuture.get();
     }
 

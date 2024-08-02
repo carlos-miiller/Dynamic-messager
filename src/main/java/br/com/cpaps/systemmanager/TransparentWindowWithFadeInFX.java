@@ -1,6 +1,7 @@
 package br.com.cpaps.systemmanager;
 
 import br.com.cpaps.systemmanager.controllers.MessageVerifier;
+import br.com.cpaps.systemmanager.data.RamaisApi;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,6 +51,8 @@ public class TransparentWindowWithFadeInFX extends Application {
     }
 
     public static void main(String[] args) {
+        RamaisApi ramaisApi = new RamaisApi();
+        System.out.println(ramaisApi.fetchAllRamals());
         launch(args);
     }
 }

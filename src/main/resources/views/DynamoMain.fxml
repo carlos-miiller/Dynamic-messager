@@ -15,14 +15,14 @@
       <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleAnchorPaneClick" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="65.0" prefWidth="222.0" style="-fx-background-color: transparent;">
          <children>
             <Pane layoutX="11.0" layoutY="12.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
-            <Pane layoutX="19.0" layoutY="21.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black;">
+            <Pane layoutX="19.0" layoutY="21.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: #02002E;">
                <children>
                   <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="2.0" text="DYNAMO" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Pane fx:id="options" opacity="0.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black;">
+                  <Pane fx:id="options" opacity="0.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: #03003A;">
                      <children>
                         <Pane fx:id="secondOption" layoutX="70.0" onMouseEntered="#showSecondOption" onMouseExited="#hideSecondOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
                            <children>
