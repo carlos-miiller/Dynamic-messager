@@ -40,11 +40,11 @@ public class ramalController {
                 String ramal = ramalNode.path("ramal").asText();
 
                 Text nameText = new Text(nome);
-                nameText.setFont(new Font("JetBrains Mono ExtraBold", 13));
+                nameText.setFont(new Font("JetBrains Mono ExtraBold", 15));
                 nameText.setFill(javafx.scene.paint.Color.WHITE);
 
                 Text numberText = new Text(ramal);
-                numberText.setFont(new Font("JetBrains Mono ExtraBold", 13));
+                numberText.setFont(new Font("JetBrains Mono ExtraBold", 15));
                 numberText.setFill(javafx.scene.paint.Color.WHITE);
                 numberText.setTextAlignment(TextAlignment.LEFT);
 

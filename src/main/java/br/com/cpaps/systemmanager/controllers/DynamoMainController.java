@@ -92,7 +92,7 @@ public class DynamoMainController {
 
         double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
         double windowWidth = 635.0;
-        newStage.setX((screenWidth - windowWidth) / 2);
+        newStage.setX((screenWidth / 2) - (windowWidth / 2));
         newStage.setY(0);
 
         newStage.show();
