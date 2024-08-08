@@ -5,6 +5,7 @@ module br.com.cpaps.systemmanager {
     requires javafx.fxml;
     requires javafx.web;
     requires java.desktop;
+    requires jdk.jdi;
 
     opens br.com.cpaps.systemmanager to javafx.fxml;
     exports br.com.cpaps.systemmanager;

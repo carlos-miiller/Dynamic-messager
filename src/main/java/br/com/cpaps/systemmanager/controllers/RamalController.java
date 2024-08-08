@@ -1,11 +1,16 @@
 package br.com.cpaps.systemmanager.controllers;
 
 import br.com.cpaps.systemmanager.data.RamaisApi;
+
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -17,7 +22,7 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.ExecutionException;
 
-public class ramalController {
+public class RamalController {
     @FXML
     private AnchorPane rootPane;
 
@@ -27,13 +32,44 @@ public class ramalController {
     @FXML
     private TextFlow ramalTextFlow;
 
+    @FXML
+    private TextField searchInput;
+
+    private final RamaisApi apiClient = new RamaisApi();
+    private final JsonNode response = apiClient.fetchAllRamals();
 
     @FXML
     public void initialize() throws ExecutionException, InterruptedException {
-        RamaisApi apiClient = new RamaisApi();
-        JsonNode response = apiClient.fetchAllRamals();
+        searchInput.setOnKeyPressed(ke -> {
+            if (ke.getCode().equals(KeyCode.ENTER)) {
+                String search = searchInput.getText().toLowerCase();
+                JsonNode filteredResponse = response.findParents("nome").stream()
+                        .filter(node -> node.path("nome").asText().toLowerCase().contains(search) || node.path("ramal").asText().toLowerCase().contains(search))
+                        .collect(() -> apiClient.getObjectMapper().createArrayNode(), ArrayNode::add, ArrayNode::addAll);
+                ramalTextFlow.getChildren().clear();
+                displayRamals(filteredResponse);
+            }
+        });
+        displayRamals(response);
+    }
 
+    @FXML
+    public void close() {
+        Stage currentStage = (Stage) rootPane.getScene().getWindow();
+        currentStage.close();
+    }
 
+    @FXML
+    public void displayExit(MouseEvent event) {
+        ramalExitButton.setOpacity(1);
+    }
+
+    @FXML
+    public void hideExit(MouseEvent event) {
+        ramalExitButton.setOpacity(0.5);
+    }
+
+    public void displayRamals(JsonNode response) {
         if (response != null) {
             for (JsonNode ramalNode : response) {
                 String nome = ramalNode.path("nome").asText();
@@ -55,8 +91,8 @@ public class ramalController {
                 hBox.setId("ramalSet");
 
                 HBox nameBox = new HBox(nameText);
-                nameBox.setPrefWidth(210);
-                nameBox.setMaxWidth(210);
+                nameBox.setPrefWidth(250);
+                nameBox.setMaxWidth(250);
                 nameBox.setPrefHeight(10);
                 nameBox.setAlignment(Pos.CENTER_LEFT);
 
@@ -85,19 +121,5 @@ public class ramalController {
                 ramalTextFlow.getChildren().add(hBox);
             }
         }
-    }
-    @FXML
-    public void close(){
-        Stage currentStage = (Stage) rootPane.getScene().getWindow();
-        currentStage.close();
-    }
-    @FXML
-    public void displayExit(MouseEvent event){
-        ramalExitButton.setOpacity(1);
-    }
-
-    @FXML
-    public void hideExit(MouseEvent event){
-        ramalExitButton.setOpacity(0.5);
     }
 }

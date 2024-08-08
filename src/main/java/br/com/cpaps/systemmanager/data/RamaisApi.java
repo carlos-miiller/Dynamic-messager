@@ -1,5 +1,6 @@
 package br.com.cpaps.systemmanager.data;
 
+import com.fasterxml.jackson.core.TreeCodec;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
@@ -10,6 +11,8 @@ import java.net.URL;
 public class RamaisApi {
     private static final String API_URL = "http://localhost:8022/api-v1/ramais";
     private static final String DISPATCH_CALL_API = "http://localhost:8022/api-v1/ramais/push?number=";
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public JsonNode fetchAllRamals() {
         try {
@@ -51,4 +54,8 @@ public class RamaisApi {
             e.printStackTrace();
         }
     }
+    public ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
+
 }
