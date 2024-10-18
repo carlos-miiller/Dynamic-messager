@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<StackPane fx:id="stackPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="90.0" prefWidth="444.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.DynamoSecondController">
+   <children>
+      <AnchorPane fx:id="firstOption" maxHeight="40.0" maxWidth="201.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#displayRamals" onMouseEntered="#showFirstOption" onMouseExited="#hideFirstOption" prefHeight="40.0" prefWidth="201.0" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Pane prefHeight="20.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
+            <Pane layoutX="8.0" layoutY="8.0" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: #02002E;">
+               <children>
+                  <Label fx:id="ramalsTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="184.0" text="RAMAIS" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutY="35.0" prefHeight="20.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 3 3 3;" />
+         </children>
+         <StackPane.margin>
+            <Insets left="10.0" top="20.0" />
+         </StackPane.margin>
+      </AnchorPane>
+      <AnchorPane fx:id="secondOption" maxHeight="40.0" maxWidth="201.0" nodeOrientation="LEFT_TO_RIGHT" onMouseEntered="#showSecondOption" onMouseExited="#hideSecondOption" prefHeight="40.0" prefWidth="201.0" StackPane.alignment="TOP_RIGHT">
+         <children>
+            <Pane prefHeight="15.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
+            <Pane layoutX="8.0" layoutY="8.0" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: #02002E;">
+               <children>
+                  <Label fx:id="infoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="184.0" text="INFORMES" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono ExtraBold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutY="35.0" prefHeight="20.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 3 3 3;" />
+         </children>
+         <StackPane.margin>
+            <Insets right="10.0" top="20.0" />
+         </StackPane.margin>
+      </AnchorPane>
+      <WebView fx:id="dropdownWebView" maxHeight="200.0" prefHeight="200.0" prefWidth="444.0" style="-fx-page-fill: white;" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="80.0" />
+         </StackPane.margin>
+      </WebView>
+   </children>
+   <StackPane.alignment>
+      <javafx.geometry.Pos fx:constant="TOP_CENTER" />
+   </StackPane.alignment>
+</StackPane>

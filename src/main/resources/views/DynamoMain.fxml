@@ -12,19 +12,19 @@
 
 <StackPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.DynamoMainController">
    <children>
-      <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleAnchorPaneClick" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="65.0" prefWidth="222.0" style="-fx-background-color: transparent;">
+      <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleAnchorPaneClick" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" prefHeight="56.0" prefWidth="202.0" style="-fx-background-color: transparent;">
          <children>
-            <Pane layoutX="11.0" layoutY="12.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 0 3;" />
-            <Pane layoutX="19.0" layoutY="21.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: #02002E;">
+            <Pane layoutX="180.0" prefHeight="56.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 3 3 0;" />
+            <Pane layoutX="8.0" layoutY="7.0" prefHeight="42.0" prefWidth="184.0" style="-fx-background-color: #02002E;">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="2.0" text="DYNAMO" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="dynamoTitle" alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" prefHeight="42.0" prefWidth="184.0" text="DYNAMO" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Pane fx:id="options" opacity="0.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: #03003A;">
+                  <Pane fx:id="options" opacity="0.0" prefHeight="43.0" prefWidth="184.0" style="-fx-background-color: #03003A;">
                      <children>
-                        <Pane fx:id="secondOption" layoutX="70.0" onMouseEntered="#showSecondOption" onMouseExited="#hideSecondOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                        <Pane fx:id="secondOption" layoutX="70.0" layoutY="5.0" onMouseEntered="#showSecondOption" onMouseExited="#hideSecondOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
                            <children>
                               <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0" style="-fx-opacity: 1;">
                                  <image>
@@ -33,7 +33,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane fx:id="thirdOption" layoutX="125.0" onMouseClicked="#clickThirdOption" onMouseEntered="#showThirdOption" onMouseExited="#hideThirdOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                        <Pane fx:id="thirdOption" layoutX="125.0" layoutY="5.0" onMouseClicked="#clickThirdOption" onMouseEntered="#showThirdOption" onMouseExited="#hideThirdOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
                            <children>
                               <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0">
                                  <image>
@@ -42,7 +42,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane fx:id="firstOption" layoutX="13.0" onMouseClicked="#chama" onMouseEntered="#showFirstOption" onMouseExited="#hideFirstOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
+                        <Pane fx:id="firstOption" layoutX="13.0" layoutY="5.0" onMouseClicked="#clickFirstOption" onMouseEntered="#showFirstOption" onMouseExited="#hideFirstOption" opacity="0.5" prefHeight="32.0" prefWidth="46.0">
                            <children>
                               <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0">
                                  <image>
@@ -55,7 +55,7 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane layoutX="11.0" layoutY="46.0" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 3 3 3;" />
+            <Pane prefHeight="56.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3 0 3 3;" />
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />

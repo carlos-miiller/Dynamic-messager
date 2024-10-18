@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.SecondViewController">
+<AnchorPane fx:id="rootPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" style="-fx-background-color: transparent; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.SecondViewController">
    <children>
-      <Polyline fill="#02002e" layoutX="259.0" layoutY="197.0" points="131.0, -11.0, 107.0, -11.0, 110.0, 4.0, 127.0, 21.0" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polyline fill="#02002e" layoutX="259.0" layoutY="197.0" points="130.0, -22.0, 110.0, -22.0, 110.0, 4.0, 127.0, 21.0" strokeType="INSIDE" strokeWidth="0.0" />
       <Pane fx:id="messagePane" layoutX="366.0" layoutY="205.0" minHeight="80.0" prefWidth="617.0" style="-fx-background-color: #02002E60;">
          <children>
             <Text fx:id="messageLabel" fill="WHITE" layoutX="22.0" layoutY="56.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="HQ.MESSAGE.ERROR" wrappingWidth="573.0">
@@ -25,9 +25,9 @@
             <Insets bottom="20.0" />
          </padding>
       </Pane>
-      <Pane layoutX="383.0" layoutY="186.0" prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #02002E; -fx-border-color: #ffffff; -fx-border-width: 0 0 3 0;">
+      <Pane layoutX="383.0" layoutY="175.0" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: #02002E; -fx-border-color: #ffffff; -fx-border-width: 0 0 3 0;">
          <children>
-            <Text fx:id="titleLabel" fill="WHITE" layoutX="50.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HQ.DISPATCH.ERROR" wrappingWidth="500.0">
+            <Text fx:id="titleLabel" fill="WHITE" layoutX="50.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HQ.DISPATCH.ERROR" wrappingWidth="500.0">
                <font>
                   <Font name="JetBrains Mono Bold" size="20.0" />
                </font>
@@ -48,7 +48,7 @@
          </children>
       </Pane>
       <Pane layoutX="370.0" layoutY="195.0" prefHeight="21.0" prefWidth="24.0" rotate="45.0" style="-fx-border-width: 0 0 4 0; -fx-border-color: white;" />
-      <Pane layoutX="366.0" layoutY="186.0" prefHeight="19.0" prefWidth="24.0" style="-fx-border-color: white; -fx-border-width: 0 0 0 3;">
+      <Pane layoutX="366.0" layoutY="175.0" prefHeight="29.0" prefWidth="24.0" style="-fx-border-color: white; -fx-border-width: 0 0 0 3;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

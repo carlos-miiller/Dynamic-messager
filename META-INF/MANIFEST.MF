@@ -6,5 +6,5 @@ Class-Path: lib/javafx-controls-13.jar lib/javafx-controls-13-linux.jar
  base-13.jar lib/javafx-base-13-linux.jar lib/javafx-fxml-13.jar lib/jav
  afx-fxml-13-linux.jar lib/jackson-core-2.13.3.jar lib/jackson-databind-
  2.16.1.jar lib/jackson-annotations-2.16.1.jar
-Main-Class: br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX
+Main-Class: br.com.cpaps.systemmanager.Run
 

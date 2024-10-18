@@ -9,8 +9,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class MessageVerifier {
-
-    private static final String VERSION_FILE_PATH = "src/main/resources/user_data/version.properties";
+    private static final String VERSION_FILE_PATH = System.getProperty("version.file.path", "user_data/version.properties");
 
     public static boolean haveNew() {
         try {
@@ -18,18 +17,13 @@ public class MessageVerifier {
             if (currentData != null) {
                 String type = currentData.path("type").asText();
                 int currentVersion = currentData.path("version").asInt();
-
-                // Fetch the last known version for this type
                 String lastVersionStr = getVersionForType(type);
                 int lastVersion = lastVersionStr != null ? Integer.parseInt(lastVersionStr) : -1;
-
                 boolean isNew = lastVersion != currentVersion;
 
                 if (isNew || lastVersion == -1) {
-                    // If versions differ or type does not exist, update the file
                     updateVersionForType(type, currentVersion);
                 }
-
                 return isNew;
             } else {
                 System.out.println("Unable to retrieve data from the server.");
@@ -49,20 +43,27 @@ public class MessageVerifier {
 
     private static String getVersionForType(String type) throws IOException {
         Properties properties = new Properties();
+
+        // Try to load the properties file
         try (InputStream input = new FileInputStream(VERSION_FILE_PATH)) {
             properties.load(input);
             return properties.getProperty(type);
+        } catch (FileNotFoundException e) {
+            // If the file is not found, create a new file and return null for the version
+            createEmptyVersionFile();
+            return null;
         }
     }
 
     private static void updateVersionForType(String type, int newVersion) throws IOException {
         Properties properties = new Properties();
 
-        // Load existing properties if file exists
+        // Load existing properties if the file exists
         try (InputStream input = new FileInputStream(VERSION_FILE_PATH)) {
             properties.load(input);
         } catch (FileNotFoundException e) {
-            // If the file does not exist, it's fine; we'll create a new one
+            // If the file does not exist, create it
+            createEmptyVersionFile();
         }
 
         // Update or add the version for the specific type
@@ -72,5 +73,25 @@ public class MessageVerifier {
         try (OutputStream output = new FileOutputStream(VERSION_FILE_PATH)) {
             properties.store(output, null);
         }
+    }
+
+    private static void createEmptyVersionFile() throws IOException {
+        File file = new File(VERSION_FILE_PATH);
+        File parentDir = file.getParentFile();
+
+        // Create the parent directories if they don't exist
+        if (parentDir != null && !parentDir.exists()) {
+            boolean dirsCreated = parentDir.mkdirs();
+            if (!dirsCreated) {
+                throw new IOException("Failed to create directories for path: " + VERSION_FILE_PATH);
+            }
+        }
+
+        // Create an empty properties file
+        Properties properties = new Properties();
+        try (OutputStream output = new FileOutputStream(file)) {
+            properties.store(output, "Version properties file created.");
+        }
+        System.out.println("Version properties file created at: " + VERSION_FILE_PATH);
     }
 }

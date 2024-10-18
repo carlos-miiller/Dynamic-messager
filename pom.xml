@@ -54,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX</mainClass>
+                            <mainClass>br.com.cpaps.systemmanager.Run</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
@@ -84,7 +84,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX</mainClass>
+                    <mainClass>br.com.cpaps.systemmanager.Run</mainClass>
                 </configuration>
             </plugin>
         </plugins>

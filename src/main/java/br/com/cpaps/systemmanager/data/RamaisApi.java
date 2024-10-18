@@ -9,8 +9,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class RamaisApi {
-    private static final String API_URL = "http://localhost:8022/api-v1/ramais";
-    private static final String DISPATCH_CALL_API = "http://localhost:8022/api-v1/ramais/push?number=";
+    private static final String API_URL = "http://192.168.1.158:8022/api-v1/ramais";
+    private static final String DISPATCH_CALL_API = "http://192.168.1.158:8022/api-v1/ramais/push?number=";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

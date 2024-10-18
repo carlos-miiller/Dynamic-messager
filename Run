@@ -3,8 +3,8 @@
 # Set the paths
 JRE_PATH=target/jre22/bin/java
 MODULE_PATH=target/lib
-JAR_PATH=target/DM-0.1-ALPHA-UNSTABLE.jar
-MAIN_CLASS=br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX
+JAR_PATH=target/DM-0.1-ALPHA-UNSTABLE-DISCONTINUED.jar
+MAIN_CLASS=br.com.cpaps.systemmanager.Run
 
 # Specify the JavaFX modules required
 MODULES=javafx.controls,javafx.fxml

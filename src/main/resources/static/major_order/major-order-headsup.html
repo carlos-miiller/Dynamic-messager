@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Components</title>
+    <style>
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('resources/JetBrainsMono-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'JetBrains Mono', sans-serif;
+            background-color: rgba(0, 0, 0, 0.458);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .order {
+            background-color: #333;
+            padding: 15px;
+
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .highlight {
+            display: flex;
+            font-weight: bold;
+            position: absolute;
+            top: -60px;
+            right: 0px;
+            float: right;
+            flex-direction: row;
+        }
+
+        .order h2 {
+        position:relative;
+            font-size: 1.3em;
+            width: 300px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .order p {
+            font-size: 0.9em;
+        }
+        .order-overview p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .order-overview {
+            margin: 10px 0;
+        }
+        .order-overview .planet {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            background-color: #555;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress {
+            background-color: #00bfff;
+            height: 100%;
+            width: 100%;
+        }
+        .reward {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+            flex-direction: column;
+        }
+        .reward span {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffc117;
+            margin-left: 5px;
+        }
+        .highlight h3, .highlight p{
+            font-size: 1.2em;
+        }
+        .highlight h3{
+            font-size: 1.3em;
+        }
+        .highlight p{
+            margin-top: 22px;
+            background-color: yellow;
+            color: black;
+            font-weight:bolder;
+            width: 120px;
+            height: 24px;
+            text-align: center;
+            margin-left: 1px;
+            font-size: 1.2em;
+        }
+        .chama {
+            display: flex;
+            background-color: black;
+            margin: none;
+            position: relative;
+            width: 520px;
+            margin-top: -25px;
+            height: 60px;
+            margin-left: -35px;
+        }
+        .chama h2 {
+            font-size: 24px;
+            margin: auto;
+            align-self: center;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Major Order -->
+    <div class="order">
+        <div class="highlight">
+            <h3>
+                Fim da Ordem em:
+            </h3>
+            <p>
+                 02D 02H
+            </p>
+        </div>
+        <div class="chama">
+            <h2>ORDEM IMPERATIVA</h2>
+        </div>
+        <p>Se aproximando do fim do ano, novamente temos uma blackfriday a frente.</p>
+        <p>Esse ano teremos uma disputa direta entre as lojas e o site. prove seu valor e suas capacidades nessa disputa. Prove que sua loja não só tem a capacidade mas é a loja número 1!</p>
+
+        <div class="order-overview">
+            <p>Order Overview</p>
+            <span>VILA VELHA</span>
+            <div class="planet">
+                <span>351.642,00</span>
+                <span>29.9%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 29.9%;"></div>
+            </div>
+            <br>
+            <div class="planet">
+                <span>LOJAS</span>
+                <span>15.9%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 15.9%;"></div>
+            </div>
+            <div class="planet">
+                <span>SITE</span>
+                <span>23.5%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 23.5%;"></div>
+            </div>
+        </div>
+
+        <div class="reward">
+            <h3>RECOMPENSA</h3>
+            <span style="margin-bottom: 35px;">RAMAIS EM LOJA</span>
+        </div>
+    </div>
+
+    <!-- Personal Order -->
+    <div class="order">
+        <div class="highlight">
+            <h3>
+                Fim da Ordem em:
+            </h3>
+            <p>
+                 02D 02H
+            </p>
+        </div>
+        <div class="chama">
+            <h2>ORDEM PESSOAL</h2>
+        </div>
+        <p>Faça 60 Vendas</p>
+
+        <div class="order-overview">
+            <div class="planet">
+                <span>19/60</span>
+                <span>35.0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 35%;"></div>
+            </div>
+        </div>
+
+        <div class="reward">
+            <h3>RECOMPENSA</h3>
+            <span style="margin-bottom: 35px;">R$50,00</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

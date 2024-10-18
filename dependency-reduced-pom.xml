@@ -25,7 +25,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>br.com.cpaps.systemmanager.TransparentWindowWithFadeInFX</mainClass>
+                  <mainClass>br.com.cpaps.systemmanager.Run</mainClass>
                 </transformer>
               </transformers>
             </configuration>
