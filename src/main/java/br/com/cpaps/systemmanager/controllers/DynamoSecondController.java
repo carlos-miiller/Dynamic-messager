@@ -3,6 +3,7 @@ package br.com.cpaps.systemmanager.controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -26,23 +31,16 @@ public class DynamoSecondController {
     private Pane secondOption;
     @FXML
     private Label ramalsTitle, infoTitle;
-
-    @FXML
-    private WebView dropdownWebView;
     @FXML
     private StackPane stackPane;
-    @FXML
-    private AnchorPane rootPane;
 
     private Scene ramalsOverviewScene;
-    private Stage secondStage;
-    private boolean isDropdownVisible = false;
+    private boolean stageIsOpen = false;
+    private Stage newStage;
+    private String currentStage;
+    private final double screenWidth = Screen.getPrimary().getBounds().getWidth();
 
     Font customFont = Font.loadFont(getClass().getResourceAsStream("/fonts/JetBrainsMono-Bold.ttf"), 22);
-
-    public void setStage(Stage stage) {
-        this.secondStage = stage;
-    }
 
     @FXML
     public void showFirstOption(MouseEvent event) {
@@ -65,51 +63,40 @@ public class DynamoSecondController {
     }
 
     @FXML
-    public void displayRamals(MouseEvent event) {
-        System.out.println("displayRamals triggered");
-
-        Timeline timeline = new Timeline();
-        if (isDropdownVisible) {
-            // Collapse animation
-            KeyValue heightValue = new KeyValue(dropdownWebView.prefHeightProperty(), 0);
-            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), heightValue);
-            timeline.getKeyFrames().add(keyFrame);
-
-            timeline.setOnFinished(e -> {
-                dropdownWebView.setVisible(false);
-                System.out.println("Collapsed: Height = " + dropdownWebView.getHeight());
-                adjustStageHeight(400);  // Adjust to a smaller height after collapsing
-            });
-
-            isDropdownVisible = false;
+    public void clickFirstOption(MouseEvent event) throws IOException {
+        if (stageIsOpen) {
+            if (currentStage.equals("major-order")) {
+                stackPane.setBackground(null);
+                currentStage = "";
+                stageIsOpen = false;
+                newStage.close();
+                return;
+            } else {
+                // Close the current stage if it is not major-order, and prepare to open the new stage
+                newStage.setOpacity(0);
+                newStage.close();
+                newStage = new Stage();
+            }
         } else {
-            dropdownWebView.setVisible(true);
-
-            // Expand animation
-            KeyValue heightValue = new KeyValue(dropdownWebView.prefHeightProperty(), 300);
-            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.5), heightValue);
-            timeline.getKeyFrames().add(keyFrame);
-
-            timeline.setOnFinished(e -> {
-                System.out.println("Expanded: Height = " + dropdownWebView.getHeight());
-                adjustStageHeight(800);  // Adjust to a larger height after expansion
-            });
-
-            isDropdownVisible = true;
+            // Create a new stage since no stage is currently open
+            newStage = new Stage();
+            stageIsOpen = true;
         }
-        timeline.play();
+
+        // Set the current stage identifier
+        currentStage = "major-order";
+        stackPane.setBackground(Background.fill(Paint.valueOf("rgba(0, 0, 0, 0.458)")));
+
+        ramalsOverviewScene.setFill(null);
+        newStage.initStyle(StageStyle.TRANSPARENT);
+        newStage.setScene(ramalsOverviewScene);
+        newStage.setTitle("Dynamo");
+        newStage.setX(screenWidth - 500);
+        newStage.setY(122);
+
+        newStage.show();
     }
 
-    private void adjustStageHeight(double height) {
-        if (secondStage != null) {
-            Platform.runLater(() -> {
-                if (height > 0) {
-                    secondStage.setHeight(height);
-                    System.out.println("Stage height adjusted to: " + height);
-                }
-            });
-        }
-    }
 
     public void initialize() throws IOException {
         ramalsOverviewScene = new Scene(new FXMLLoader(getClass().getResource("/views/RamalsDescription.fxml")).load());
@@ -120,9 +107,5 @@ public class DynamoSecondController {
         firstOption.setOpacity(0.5);
         secondOption.setOpacity(0.5);
 
-        // Start with height 0 to make it hidden initially
-        dropdownWebView.setPrefHeight(0);
-        dropdownWebView.setMinHeight(0);
-        dropdownWebView.setMaxHeight(300);
     }
 }

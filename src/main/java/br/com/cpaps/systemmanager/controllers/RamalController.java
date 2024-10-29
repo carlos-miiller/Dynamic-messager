@@ -53,7 +53,6 @@ public class RamalController {
             System.out.println("Could not load the HTML file. URL is null.");
         }
         webView.setContextMenuEnabled(false);
-        webView.setPrefHeight(Screen.getPrimary().getBounds().getHeight());
         System.out.println(Screen.getPrimary().getBounds().getHeight());
         System.out.println(Screen.getScreens().getFirst().getBounds().getHeight());
     }

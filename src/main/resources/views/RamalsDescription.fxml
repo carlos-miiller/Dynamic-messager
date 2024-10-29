@@ -3,9 +3,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-
-<AnchorPane fx:id="anchonPane" prefHeight="768.0" prefWidth="550.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.RamalController">
+<AnchorPane fx:id="anchonPane" prefHeight="638.0" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cpaps.systemmanager.controllers.RamalController">
     <children>
-        <WebView fx:id="webView" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="550.0" style="-fx-page-fill: transparent;" />
+        <WebView fx:id="webView" minHeight="-1.0" minWidth="-1.0" prefHeight="644.0" prefWidth="500.0" style="-fx-page-fill: transparent;" />
     </children>
 </AnchorPane>

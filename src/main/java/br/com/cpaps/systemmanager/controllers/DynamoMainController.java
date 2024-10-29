@@ -38,7 +38,7 @@ public class DynamoMainController {
     private Stage newStage;
     private boolean stageIsOpen = false;
     private String currentStage;
-    private final double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
+    private final double screenWidth = Screen.getPrimary().getBounds().getWidth();
 
     @FXML
     private void handleAnchorPaneClick(MouseEvent event) {
@@ -105,7 +105,7 @@ public class DynamoMainController {
         newStage.initStyle(StageStyle.TRANSPARENT);
         newStage.setScene(majorOrderOverviewScene);
         newStage.setTitle("Dynamo");
-        newStage.setY(0);
+        newStage.setY(90);
         newStage.setX(screenWidth-520);
         newStage.show();
     }
@@ -128,7 +128,7 @@ public class DynamoMainController {
         newStage.initStyle(StageStyle.TRANSPARENT);
         newStage.setScene(ramalsOverviewScene);
         newStage.setTitle("Dynamo");
-        newStage.setY(0);
+        newStage.setY(90);
         newStage.setX(screenWidth-520);
         
         newStage.show();

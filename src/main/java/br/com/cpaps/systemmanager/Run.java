@@ -43,15 +43,13 @@ public class Run extends Application {
                 double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
                 double windowWidth = 222.0; // Assuming a known width for DynamoMain
                 primaryStage.setX((screenWidth - windowWidth) / 2);
-                primaryStage.setY(20);
+                primaryStage.setY(45);
 
                 // Load the second FXML file and show it in a new stage
                 FXMLLoader loader2 = new FXMLLoader(getClass().getResource(fxmlFile2));
                 Parent root2 = loader2.load();
                 Stage secondStage = new Stage();
-                secondStage.setX((screenWidth-444)-30);
-                secondStage.setY(0);
-                secondStage.setHeight(800);
+                secondStage.setX((screenWidth-500));
                 Scene secondScene = new Scene(root2);
                 secondScene.setFill(null);
 
